@@ -1,0 +1,12 @@
+{
+  "name": "node-proj",
+  "version": "1.0.0",
+  "description": "Node Day 2 Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Breiden Busch",
+  "license": "ISC"
+}
