@@ -1,3 +1,9 @@
+'use strict'
+let user = {
+    username: 'bbusch',
+    pin: '1234'
+};
+
 module.exports = {
     addHeaders: function(req, res, next) {
     res.status(200).set({
@@ -11,5 +17,15 @@ module.exports = {
     });
 
     next();
-  }
+    },
+    verifyUser: (req, res, next) => {
+        let username = req.params.username;
+        let pin = req.params.pin;
+        if (username === user.username && pin === user.pin) {
+            next(req);
+        } else {
+            res.status(401).json('Please enter valid credentials');
+        }
+    }
+
 }
