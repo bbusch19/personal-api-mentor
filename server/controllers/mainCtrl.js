@@ -17,13 +17,19 @@ module.exports = {
         res.status(200).json({location: 'Timbuktu'})
     },
     getOccupations: (req, res, next) => {
-        res.status(200).json({occupations: myOccupations})
+        let query = req.query.order;
+        if (query === 'asc') res.status(200).json({occupations: myOccupations.sort()});
+        else if (query === 'desc') res.status(200).json({occupations: myOccupations.sort().reverse()});
+        else res.status(200).json({occupations: myOccupations});
     },
     getLatestOccupation: (req, res, next) => {
         res.status(200).json({latestOccupation: myOccupations[0]})
     },
     getHobbies: (req, res, next) => {
-        res.status(200).json({hobbies: myHobbies})
+        let query = req.query.order;
+        if (query === 'asc') res.status(200).json({hobbies: myHobbies.sort()});
+        else if (query === 'desc') res.status(200).json({hobbies: myHobbies.sort().reverse()});
+        else res.status(200).json({hobbies: myHobbies});
     },
     getHobby: (req, res, next) => {
         let returnArray = [];
